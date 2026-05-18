@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Breaking News - Interview</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    background-color: #01072E;
+    padding: 10px 20px;
+}
+
+header img {
+    width: 70px;
+    margin-right: 15px;
+}
+
+header span {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* BREAKING NEWS ANIMATION */
+.breaking {
+    background: red;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.scroll {
+    display: flex;
+    width: max-content;
+    animation: scrollText 20s linear infinite;
+}
+
+.scroll span {
+    padding-right: 50px;
+}
+
+@keyframes scrollText {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+/* LAYOUT */
+.container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+.transcript p {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+
+.left, .right {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.left:hover, .right:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+}
+
+.left { width: 35%; }
+.right { width: 65%; }
+
+/* IMAGE */
+img.content-img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+img.content-img:hover {
+    transform: scale(1.05);
+}
+
+/* TEXT */
+h1 {
+    color: #01072E;
+    animation: slideIn 1s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.audio {
+    margin-top: 15px;
+}
+
+audio {
+    width: 100%;
+}
+
+.transcript {
+    line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+    background-color: #01072E;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #01072E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: slideUp 2s ease forwards;
+    animation-delay: 2s;
+}
+
+.intro-text {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    animation: zoomIn 1.5s ease;
+}
+
+/* Text kommt leicht rein */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Bildschirm fährt nach oben weg */
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.live-intro {
+    color: red;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {opacity: 1;}
+    50% {opacity: 0.4;}
+    100% {opacity: 1;}
+}
+
+</style>
+
+</head>
+<body>
+<div id="intro">
+    <div class="intro-text">
+	<span class="live-intro">● LIVE</span><br>
+
+        We want Wisdom<br>
+
+        Breaking News
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <img src="https://i.postimg.cc/k430fvRq/Unbenanntes-Bild.png">
+    <span>We want Wisdom</span>
+</header>
+<div style="background:#020d3a; color:white; padding:10px; font-size:14px;">
+    Politics&nbsp;&nbsp;|&nbsp;&nbsp;World&nbsp;&nbsp;|&nbsp;&nbsp;Economy&nbsp;&nbsp;|&nbsp;&nbsp;Technology&nbsp;&nbsp;|&nbsp;&nbsp;Sports
+</div>
+<div id="clock" style="position:absolute; right:20px; top:15px; color:white; font-size:30px;"></div>
+
+<script>
+setInterval(() => {
+    const now = new Date();
+    document.getElementById("clock").innerHTML =
+        now.toLocaleTimeString();
+}, 1000);
+</script>
+
+
+<!-- BREAKING NEWS -->
+<div class="breaking">
+    <div class="scroll">
+        <span>BREAKING NEWS • LIVE REPORT • BREAKING NEWS • LIVE REPORT • </span>
+        <span>BREAKING NEWS • LIVE REPORT • BREAKING NEWS • LIVE REPORT • </span>
+	<span>BREAKING NEWS • LIVE REPORT • BREAKING NEWS • LIVE REPORT • </span>
+	<span>BREAKING NEWS • LIVE REPORT • BREAKING NEWS • LIVE REPORT • </span>
+
+    </div>
+</div>
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+        <img class="content-img" src="https://i.postimg.cc/d39TN6WG/R.jpg" alt="Martin Luther King Jr.">
+
+        <p style="font-size:12px; color:gray;">
+            Martin Luther King Jr. during an interview.
+        </p>
+
+        <div class="audio">
+            <h3>Interview Audio</h3>
+            <audio controls>
+                <source src="https://videotourl.com/audio/1779126534248-9f828022-c969-4702-835c-d4dbccfbc362.m4a" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+        <h1>Historic Interview Reveals Dr. King's Vision for Equality</h1>
+<p style="color:gray; font-size:14px;">
+    May 19, 2026 • Special Report
+</p>
+
+        <div class="transcript">
+
+<p><strong>Reporter 1:</strong> Dr. King, thank you very much for speaking with us today. First, can you tell us a little about your childhood and your early life?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> Thank you. I was born in Atlanta, Georgia, in 1929. I grew up in a family that believed strongly in faith and education. My father was a church minister, and my mother loved music. When I was young, I saw that Black people were treated very unfairly. This made me feel that something must change.</p>
+
+<p><strong>Reporter 2:</strong> That must have been very difficult. Did these experiences influence your future decisions?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> Yes, very much. Seeing injustice as a child made me want to help people. I wanted to fight for fairness and equal rights. I learned that change is not easy, but it is important.</p>
+
+<p><strong>Reporter 1:</strong> You went to college at a very young age. What did you learn there that helped you later in your life?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> I went to Morehouse College when I was only 15 years old. There, I learned about many important ideas. One of the most important ideas was nonviolent protest. This means creating change without violence. I was inspired by Mahatma Gandhi, who showed that peaceful action can be very powerful.</p>
+
+<p><strong>Reporter 2:</strong> Why did you choose nonviolence instead of fighting back?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> I believe that violence only creates more hate. Nonviolence creates understanding and peace. It is not weak. It is strong and takes courage. If people stay peaceful, they can change the hearts of others.</p>
+
+<p><strong>Reporter 1:</strong> One very important moment in your life was the Montgomery Bus Boycott. Can you explain what happened?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> Yes. In 1955, a woman named Rosa Parks was arrested because she did not give up her seat on a bus. At that time, buses were segregated. Black people had fewer rights. After her arrest, many people decided to stop using the buses. This protest lasted for more than one year.</p>
+
+<p><strong>Reporter 2:</strong> That is a very long time. What was the result?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> The people stayed strong, and in the end, the system changed. Segregation on buses ended. This showed that peaceful protest can work if people stand together.</p>
+
+<p><strong>Reporter 1:</strong> After that, you became an important leader. What was your main goal?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> My goal was simple. I wanted equality for all people. I wanted a world where everyone has the same rights, no matter their skin color.</p>
+
+<p><strong>Reporter 2:</strong> You helped create the Southern Christian Leadership Conference. What did this group do?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> The group organized peaceful protests and marches. We worked together to change unfair laws. We wanted to bring people together and show that change is possible without violence.</p>
+
+<p><strong>Reporter 1:</strong> One of your most famous speeches is “I Have a Dream.” Why is this speech so important?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> That speech shared my dream with the world. My dream is that people live together in peace and equality. I spoke about a future where people are judged by their character, not their skin color.</p>
+
+<p><strong>Reporter 2:</strong> Many people were inspired by your words. But you also faced many problems. What challenges did you have?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> There were many challenges. I was arrested several times. There was violence and danger. Some people did not agree with our movement. But I never lost hope.</p>
+
+<p><strong>Reporter 1:</strong> What helped you stay strong during these difficult times?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> My faith and my belief in justice gave me strength. I knew that what we were doing was right. I also believed in the power of people working together.</p>
+
+<p><strong>Reporter 2:</strong> Do you think your work made a difference?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> Yes, I believe it did. Many laws changed, and many people started to think differently. But the work is not finished. There is always more to do.</p>
+
+<p><strong>Reporter 1:</strong> What advice would you give to young people today?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> I would say: always stand up for what is right. Do not be afraid. Be kind, be strong, and believe in justice. Every person can make a difference.</p>
+
+<p><strong>Reporter 2:</strong> And what is your hope for the future?</p>
+
+<p><strong>Martin Luther King Jr.:</strong> My hope is that people learn to live together in peace. I hope that one day, there will be true equality for everyone. This is a dream worth fighting for.</p>
+
+<p><strong>Reporter 1:</strong> Dr. King, thank you very much for this inspiring interview.</p>
+
+<p><strong>Martin Luther King Jr.:</strong> Thank you. It was my pleasure.</p>
+
+</div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer>
+© 2026 We want Wisdmon – All Rights Reserved - Made by Pythoooo0
+</footer>
+
+</body>
+</html>
